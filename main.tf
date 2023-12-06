@@ -30,12 +30,12 @@ resource "random_string" "uniquestring" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  name     = "811-59d6f40e-provide-continuous-delivery-with-gith"
-  location = "East US"
+  name     = "811-b846599d-provide-continuous-delivery-with-gith"
+  location = "South Central US"
 }
 
 resource "azurerm_storage_account" "storage" {
-  name                     = "strgbsts2436587"
+  name                     = "strgbsts${random_string.uniquestring.result}"
   location                 = azurerm_resource_group.rg.location
   resource_group_name      = azurerm_resource_group.rg.name
   account_tier             = "Standard"
